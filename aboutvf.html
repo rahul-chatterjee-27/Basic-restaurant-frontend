@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Velvet Fork</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        header {
+            background: #8b0000;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffccbc;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 150px 20px;
+            background: url('https://source.unsplash.com/1600x900/?restaurant,food') no-repeat center center/cover;
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+        }
+        /* About Section */
+        .about {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff3e0;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #8b0000;
+        }
+
+        .about p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            text-align: center;
+            padding: 60px 20px;
+            background: #f8f8f8;
+        }
+
+        .timeline h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #8b0000;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: auto;
+            border-left: 4px solid #8b0000;
+            padding-left: 20px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+        }
+
+        .timeline-item h3 {
+            font-size: 22px;
+            color: #8b0000;
+        }
+
+        .timeline-item p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Team Section */
+        .team {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff3e0;
+        }
+
+        .team h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #8b0000;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            font-size: 20px;
+            color: #8b0000;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            text-align: center;
+            padding: 60px 20px;
+            background: #f8f8f8;
+            position: relative;
+        }
+
+        .testimonials h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #8b0000;
+        }
+
+        .testimonial-container {
+            max-width: 600px;
+            margin: auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-slide p {
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .testimonial-slide h4 {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #8b0000;
+        }
+
+        .fade {
+            animation: fadeEffect 1.5s;
+        }
+
+        @keyframes fadeEffect {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">Velvet Fork</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menuvf.html">Menu</a></li>
+                <li><a href="placevf.html">Order</a></li>
+                <li><a href="contactvf.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About Us</h1>
+	<p>Where Passion Meets Flavor!</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2>Our Story</h2>
+        <p>Welcome to Velvet Fork, where passion meets flavor! We offer a diverse menu of delicious dishes, crafted with fresh ingredients and authentic recipes. From hearty breakfasts to comforting dinners, refreshing drinks, and delightful desserts, there’s something for everyone. Our commitment to quality, affordability, and exceptional taste ensures a memorable dining experience. Explore our menu, filter your favorites, and indulge in the best of food and hospitality. Great taste, great moments—only at Velvet Fork!</p>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h2>Our Journey</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <h3>2015 - The Beginning</h3>
+                <p>Started as a small family-run eatery with a vision to serve fresh, flavorful dishes.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2018 - Growing Popularity</h3>
+                <p>Launched an online ordering platform, making our food accessible anywhere.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2020 - Digital Expansion</h3>
+                <p>Expanded to a second location due to overwhelming customer love and demand.</p>
+            </div>
+	 <div class="timeline-item">
+                <h3>2023 - Culinary Recognition</h3>
+                <p>Awarded ‘Best Fine Dining Experience’ in the city and featured in food magazines.</p>
+            </div>
+	<div class="timeline-item">
+                <h3>2025 - Sustainable and Future Ready</h3>
+                <p>Committed to sustainability, farm-to-table ingredients, and innovative dining experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-member"><img src="https://img.freepik.com/free-photo/chef-cooking-kitchen-while-wearing-professional-attire_23-2151208316.jpg" alt="Chef"><h3>Aman Rao</h3><p>Executive Chef</p></div>
+        <div class="team-member"><img src="https://media.licdn.com/dms/image/v2/D4D03AQF8Sx65GHmqVQ/profile-displayphoto-shrink_200_200/B4DZOmWTKsHcAY-/0/1733662684677?e=2147483647&v=beta&t=UXn9NgUuJAJjiQvE58183iKj-MNMjCZoBWG4wkK1KeM" alt="Chef"><h3>Ayush Mehta</h3><p>Sous Chef</p></div>
+        <div class="team-member"><img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNoZWZ8ZW58MHx8MHx8fDA%3D" alt="Chef"><h3>Kartik Nair</h3><p>Pastry Chef</p></div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-slide fade">
+                <p>"Absolutely loved the food! The flavors were perfect. Highly recommend!"</p>
+                <h4>- Emily Jha </h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Best dining experience ever! Velvet Fork is now my favorite restaurant."</p>
+                <h4>- Dev Bhardwaj</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Incredible ambiance and delicious meals. The service was top-notch!"</p>
+                <h4>- Sarah Khan</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Amazing food quality! Worth every penny. Can't wait to visit again!"</p>
+                <h4>- Alok Pillai</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"From starters to desserts, everything was simply perfect!"</p>
+                <h4>- Jessica Dubey</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"A true gem in the city! The food was outstanding and service excellent."</p>
+                <h4>- Rahul Pandey</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Velvet Fork never disappoints. Highly recommended for food lovers!"</p>
+                <h4>- Deepak Chatterjee</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Fantastic restaurant! Cozy environment and outstanding dishes."</p>
+                <h4>- Kapil Bansal</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Loved their desserts! The best cheesecake I've ever had!"</p>
+                <h4>- Rachel White</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"If you're a foodie, this is the place to be! Wonderful flavors."</p>
+                <h4>- Joy Bhattacherjee</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"The staff was so friendly, and the food was heavenly!"</p>
+                <h4>- Linda Khan</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Delightful experience! Their pasta is a must-try."</p>
+                <h4>- Yusuf Khan</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Great place for family dinners. Loved every bite!"</p>
+                <h4>- Olivia Dixit</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"Outstanding service and the flavors are just next level!"</p>
+                <h4>- Varun Grover</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"The best restaurant experience in years. The steak was phenomenal!"</p>
+                <h4>- Vihaan Das</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"From the moment I walked in, I felt welcomed. Amazing hospitality!"</p>
+                <h4>- Uday Kapoor</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"The perfect place for a date night! Elegant and delicious."</p>
+                <h4>- Dev Banik</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"I wish I could eat here every day! Everything was spot on."</p>
+                <h4>- Brian Gupta</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"The best pizza I've ever had! Highly recommended!"</p>
+                <h4>- Sayan Rajput</h4>
+            </div>
+            <div class="testimonial-slide fade">
+                <p>"So glad I discovered Velvet Fork. The food was mind-blowing!"</p>
+                <h4>- Jayanta Das</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Velvet Fork | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript for Slideshow -->
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("testimonial-slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+    </script>
+
+</body>
+</html>

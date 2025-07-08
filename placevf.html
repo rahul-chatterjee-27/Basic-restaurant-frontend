@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velvet Fork - Place Order</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #f8f8f8;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: #d84315;
+      padding: 15px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .food-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .quantity {
+      display: flex;
+      align-items: center;
+    }
+    .quantity button {
+      padding: 5px 10px;
+      font-size: 18px;
+      background: #d84315;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .quantity input {
+      width: 40px;
+      text-align: center;
+      margin: 0 5px;
+      font-size: 16px;
+      border: none;
+      background: transparent;
+    }
+    .order-form input, .order-form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .order-form button {
+      background: #d84315;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .bill {
+      display: none;
+      background: white;
+      padding: 15px;
+      margin-top: 20px;
+      text-align: left;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .bill h3 {
+      text-align: center;
+    }
+    #thank-you-msg {
+      display: none;
+      color: green;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    header {
+  background: #d84315;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ffe0b2;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">Velvet Fork</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menuvf.html">Menu</a></li>
+      <li><a href="aboutvf.html">About</a></li>
+      <li><a href="contactvf.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<div class="container">
+  <h2>Select Your Items</h2>
+  <div id="menu-items"></div>
+
+  <h2>Customer Details</h2>
+  <div class="order-form">
+    <input type="text" id="customer-name" placeholder="Your Name" required>
+    <input type="tel" id="phone-number" placeholder="Phone Number (10 digits)" required>
+    <button onclick="generateOTP()">Generate OTP</button>
+    <input type="text" id="otp-input" placeholder="Enter OTP" style="display: none;">
+    <input type="text" id="address" placeholder="Full Address" required>
+    <input type="text" id="landmark" placeholder="Landmark (Optional)">
+
+    <div class="bill" id="bill">
+      <h3>Velvet Fork - Order Bill</h3>
+      <p><b>Name:</b> <span id="bill-name"></span></p>
+      <p><b>Phone:</b> <span id="bill-phone"></span></p>
+      <p><b>Address:</b> <span id="bill-address"></span></p>
+      <p><b>Landmark:</b> <span id="bill-landmark"></span></p>
+      <hr>
+      <div id="bill-items"></div>
+      <hr>
+      <h3>Total: ₹<span id="total-price">0</span></h3>
+    </div>
+
+    
+
+    <button onclick="placeOrder()" id="place-order-btn">Place Order</button>
+
+    <div id="thank-you-msg">Thank you! Your order has been placed successfully.</div>
+    <button onclick="resetForm()" id="reset-btn" style="display:none;">Reset</button>
+    <button onclick="cancelOrder()" id="cancel-btn" style="display:none;">Cancel Order</button>
+  </div>
+</div>
+
+<script>
+  const menu = [
+    { name: "Pancakes", price: 199 }, { name: "Omelette", price: 149 }, { name: "French Toast", price: 129 },
+    { name: "Bagel with Cream Cheese", price: 99 }, { name: "Masala Dosa", price: 149 }, { name: "Cheeseburger", price: 249 },
+    { name: "Tacos", price: 199 }, { name: "Veggie Pizza", price: 299 }, { name: "Chow Mein", price: 159 },
+    { name: "Biryani", price: 399 }, { name: "Greek Salad", price: 179 }, { name: "Rajma Chawal", price: 149 },
+    { name: "Butter Chicken", price: 349 }, { name: "Grilled Steak", price: 599 }, { name: "Chicken Curry", price: 349 },
+    { name: "Dal Makhani", price: 249 }, { name: "Sushi", price: 499 }, { name: "Falafel Platter", price: 299 },
+    { name: "Chicken Shawarma", price: 249 }, { name: "Mutton Rogan Josh", price: 599 }, { name: "Coffee", price: 99 },
+    { name: "Coca Cola", price: 59 }, { name: "Mojito", price: 149 }, { name: "Fresh Juice", price: 99 },
+    { name: "Green Tea", price: 79 }, { name: "Cheesecake", price: 199 }, { name: "Donut", price: 89 },
+    { name: "Chocolate Chip Cookies", price: 99 }, { name: "Cupcake", price: 129 }, { name: "Ice Cream", price: 149 }
+  ];
+
+  const menuItemsDiv = document.getElementById('menu-items');
+
+  menu.forEach((item, index) => {
+    const div = document.createElement('div');
+    div.classList.add('food-item');
+    div.innerHTML = `
+      <span>${item.name} - ₹${item.price}</span>
+      <div class="quantity">
+        <button onclick="changeQuantity(${index}, -1)">-</button>
+        <input type="text" id="quantity-${index}" value="0" readonly>
+        <button onclick="changeQuantity(${index}, 1)">+</button>
+      </div>
+    `;
+    menuItemsDiv.appendChild(div);
+  });
+
+  function changeQuantity(index, delta) {
+    const input = document.getElementById(`quantity-${index}`);
+    let qty = parseInt(input.value);
+    qty += delta;
+    if (qty < 0) qty = 0;
+    input.value = qty;
+  }
+
+  let generatedOTP = '';
+  let isOTPVerified = false;
+
+  function generateOTP() {
+    generatedOTP = Math.floor(1000 + Math.random() * 9000);
+    alert(`Your OTP is: ${generatedOTP}`);
+    document.getElementById('otp-input').style.display = 'block';
+    isOTPVerified = false;
+  }
+
+ function placeOrder() {
+  const name = document.getElementById('customer-name').value.trim();
+  const phone = document.getElementById('phone-number').value.trim();
+  const enteredOTP = document.getElementById('otp-input').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const landmark = document.getElementById('landmark').value.trim();
+
+  if (!name || !phone || !address || (!enteredOTP && !isOTPVerified)) {
+    alert('Please fill in all required fields and OTP.');
+    return;
+  }
+
+  if (!/^[0-9]{10}$/.test(phone)) {
+    alert('Phone number must be exactly 10 digits.');
+    return;
+  }
+
+  if (!isOTPVerified) {
+    if (enteredOTP != generatedOTP) {
+      alert('Incorrect OTP!');
+      return;
+    }
+    isOTPVerified = true;
+  }
+
+  let total = 0;
+  let billDetails = '';
+  let itemSelected = false;
+
+  menu.forEach((item, index) => {
+    const qty = parseInt(document.getElementById(`quantity-${index}`).value);
+    if (qty > 0) {
+      const itemTotal = qty * item.price;
+      total += itemTotal;
+      itemSelected = true;
+      billDetails += `<p>${item.name} x ${qty} = ₹${itemTotal}</p>`;
+    }
+  });
+
+  if (!itemSelected) {
+    alert('Please select at least one food item.');
+    return;
+  }
+
+  document.getElementById('bill-name').innerText = name;
+  document.getElementById('bill-phone').innerText = phone;
+  document.getElementById('bill-address').innerText = address;
+  document.getElementById('bill-landmark').innerText = landmark || 'N/A';
+  document.getElementById('bill-items').innerHTML = billDetails;
+  document.getElementById('total-price').innerText = total;
+
+  document.getElementById('bill').style.display = 'block';
+  document.getElementById('reset-btn').style.display = 'block';
+  document.getElementById('cancel-btn').style.display = 'block';
+  document.getElementById('thank-you-msg').style.display = 'block';
+
+  // ✅ Hide "Place Order" button after successful submission
+  document.getElementById('place-order-btn').style.display = 'none';
+}
+
+
+  function resetForm() {
+    document.getElementById('customer-name').value = '';
+    document.getElementById('phone-number').value = '';
+    document.getElementById('otp-input').value = '';
+    document.getElementById('otp-input').style.display = 'none';
+    document.getElementById('address').value = '';
+    document.getElementById('landmark').value = '';
+    menu.forEach((item, index) => {
+      document.getElementById(`quantity-${index}`).value = 0;
+    });
+    document.getElementById('bill').style.display = 'none';
+    document.getElementById('reset-btn').style.display = 'none';
+    document.getElementById('cancel-btn').style.display = 'none';
+    document.getElementById('thank-you-msg').style.display = 'none';
+    generatedOTP = '';
+    isOTPVerified = false;
+  }
+
+  function cancelOrder() {
+  document.getElementById('bill').style.display = 'none';
+  document.getElementById('thank-you-msg').style.display = 'none';
+  document.getElementById('cancel-btn').style.display = 'none';
+
+  // ✅ Show the Place Order button again
+  document.getElementById('place-order-btn').style.display = 'block';
+}
+
+</script>
+
+</body>
+</html>

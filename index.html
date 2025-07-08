@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELVET FORK | Luxurious and smooth dining! </title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        header {
+            background: #d84315;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffccbc;
+        }
+
+        /* Slideshow Section */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            margin-top: 70px; /* Prevents overlap with navbar */
+        }
+
+        .slides {
+            display: none;
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .active-slide {
+            display: block;
+        }
+
+        /* Navigation Arrows */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .prev:hover, .next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: #fff3e0;
+            color: #333;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ff9800;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e65100;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">Velvet Fork</div>
+            <ul>
+		<li><a href="menuvf.html">Menu</a></li>
+                <li><a href="aboutvf.html">About</a></li>
+                <li><a href="contactvf.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container" id="home">
+        <img class="slides active-slide" src="https://plus.unsplash.com/premium_photo-1667682942148-a0c98d1d70db?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emElMjBzbGljZXxlbnwwfHwwfHx8MA%3D%3D" alt="Pizza">
+        <img class="slides active-slide" src="https://static.vecteezy.com/system/resources/previews/030/655/157/non_2x/veggie-burger-on-wholegrain-bun-with-lettuce-tomato-free-photo.jpg" alt="Burger">
+        <img class="slides" src="https://images.unsplash.com/photo-1633337474564-1d9478ca4e2e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNyZWFteSUyMHBhc3RhfGVufDB8fDB8fHww" alt="Pasta">
+        <img class="slides" src="https://www.winefriend.co.nz/media/1214/fancycrave-152531-unsplash.jpg?width=980&mode=min" alt="Dessert">
+
+        <!-- Navigation Arrows -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Get Your order now!</h1>
+        <p>Your food is one click away...</p>
+        <a href="placevf.html" class="btn">Place Order</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Velvel Fork | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // JavaScript for Slideshow
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("slides");
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active-slide");
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].classList.add("active-slide");
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active-slide");
+            }
+            slides[slideIndex - 1].classList.add("active-slide");
+        }
+
+        // Start Slideshow on Page Load
+        showSlides();
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll("nav ul li a").forEach(link => {
+    link.addEventListener("click", function(event) {
+        let href = this.getAttribute("href");
+        if (href.startsWith("#")) { // Only prevent default for internal section links
+            event.preventDefault();
+            let target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    });
+});
+
+    </script>
+
+</body>
+</html>

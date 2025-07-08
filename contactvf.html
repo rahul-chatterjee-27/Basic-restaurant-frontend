@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Velvet Fork</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        header {
+            background: #8b0000;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffccbc;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 150px 20px;
+            background: url('https://source.unsplash.com/1600x900/?restaurant,interior') no-repeat center center/cover;
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+            color: #8b0000;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .contact-info {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info i {
+            color: #8b0000;
+            margin-right: 10px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label {
+            font-size: 18px;
+            color: #8b0000;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background: #8b0000;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #ffccbc;
+            color: #8b0000;
+        }
+
+        /* Map Section */
+        .map-container {
+            margin: 40px auto;
+            width: 80%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">Velvet Fork</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menuvf.html">Menu</a></li>
+                <li><a href="placevf.html">Order</a></li>
+                <li><a href="aboutvf.html">About</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Contact Velvet Fork</h1>
+        <p>We’d love to hear from you!</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> 17, Park Street, Kolkata, India</p>
+                <p><i class="fas fa-phone"></i> 033 4567 9876 / +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> contact@velvetfork.com</p>
+                <p><i class="fas fa-clock"></i> Open: Mon-Sun, 9 AM - 11 PM</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form action="submit_form.php" method="POST">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="map-container">
+        <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.7261167066115!2d88.35253547458886!3d22.55351587958201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277a39803f0a1%3A0x69ea809177c63e2e!2sPark%20St%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1710660576310!5m2!1sen!2sin" 
+    width="150" 
+    height="80" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Velvet Fork | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
