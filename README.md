@@ -1,55 +1,69 @@
-🍽️ Velvet Fork – Restaurant Frontend UI
-Velvet Fork is a clean, responsive, and multi-page frontend-only restaurant website built using HTML5 and CSS3. Designed with a focus on user experience and elegant UI, it serves as a digital prototype for a restaurant brand — suitable for showcasing services, menus, and contact information in a refined format.
+# 🍽️ Velvet Fork – Restaurant Frontend UI
 
-🔗 Live Demo: Explore Velvet Fork --> https://rahul-chatterjee-27.github.io/Basic-restaurant-frontend/
+**Velvet Fork** is a clean, responsive, multi-page **frontend-only restaurant website** built with **HTML5** and **CSS3**. It serves as a digital prototype for restaurant brands to showcase their services, menu, and contact information in a professional, elegant format.
 
-🧭 Project Overview
-The website consists of multiple pages, each built with semantic HTML and styled with modular CSS. It demonstrates the structure and aesthetics of a modern restaurant website while maintaining optimal performance and responsiveness across devices.
+🔗 **Live Demo**: [Explore Velvet Fork](https://rahul-chatterjee-27.github.io/Basic-restaurant-frontend/)
 
-🔑 Key Features
-Responsive Design – Mobile-first layout for seamless user experience on all screen sizes.
+---
 
-Multi-Page Structure – Clear navigation across pages for a complete restaurant web presence.
+## 🧭 Project Overview
 
-Clean UI/UX – Minimalist and modern design tailored for a professional look and feel.
+This project features a multi-page layout designed with semantic HTML and modular CSS. It simulates a real-world restaurant website with a focus on intuitive navigation, mobile-first responsiveness, and visually appealing UI — all without any backend dependencies.
 
-Ready for Extension – Base structure prepared for future integration with JavaScript or backend technologies.
+---
 
-📄 Pages Included
-Home (index.html) – Landing page with branding and visual introduction.
+## 🔑 Key Features
 
-Menu (menuvf.html) – Categorized list of dishes and beverages.
+- ✅ **Responsive Design** – Seamless experience across mobile, tablet, and desktop devices  
+- 🧩 **Multi-Page Structure** – Separate pages for core sections: Home, Menu, About, Contact  
+- ✨ **Clean UI/UX** – Minimalist and elegant visual layout tailored for a refined restaurant brand  
+- 🔧 **Ready for Extension** – Structure built for easy enhancement using JS or backend tools  
 
-About (aboutvf.html) – Information about the restaurant’s background and values.
+---
 
-Contact (contactvf.html) – Contact form and location details.
+## 📄 Pages Included
 
-Order (Placeholder) (placevf.html) – Reserved for future order or reservation functionality.
+| Page           | File Name        | Description                                       |
+|----------------|------------------|---------------------------------------------------|
+| 🏠 Home         | `index.html`      | Landing page with branding and welcome visuals    |
+| 📜 Menu         | `menuvf.html`     | Categorized menu of dishes and beverages          |
+| 👨‍🍳 About        | `aboutvf.html`    | Background story, values, and brand philosophy    |
+| 📞 Contact       | `contactvf.html`  | Contact form, address, and location information   |
+| 📦 Order (Coming Soon) | `placevf.html`    | Placeholder for future reservation or ordering    |
 
-🛠️ Technologies Used
-HTML5 – For semantic structure and content layout.
+---
 
-CSS3 – For styling, responsiveness, and layout control.
+## 🛠️ Technologies Used
 
-(Optional) JavaScript – Ready for future enhancements.
+- **HTML5** – Semantic structure and content layout  
+- **CSS3** – Custom styling, layout control, media queries  
+- *(Optional)* **JavaScript** – Placeholder-ready for interactivity  
+- **GitHub Pages** – Deployed for easy access and live demo  
 
-GitHub Pages – Hosting and deployment.
+---
 
-📁 Project Structure
-bash
-Copy
-Edit
+## 📁 Project Structure
+
+```
 rahul-html-designs/
 ├── index.html         # Home page
 ├── menuvf.html        # Menu page
 ├── aboutvf.html       # About page
 ├── contactvf.html     # Contact page
-└── placevf.html       # Order/Booking placeholder
-🚀 Future Scope
-Add dynamic content and animations using JavaScript
+└── placevf.html       # Placeholder for orders/reservations
+```
 
-Integrate backend for reservations and orders
+---
 
-Enhance UI/UX with frameworks like Bootstrap or Tailwind CSS
+## 🚀 Future Scope
 
-Implement SEO best practices and accessibility features
+- 🧠 Add interactivity and animations using JavaScript  
+- 🔄 Integrate backend for real-time orders/reservations  
+- 🎨 Enhance styling with frameworks like Bootstrap/Tailwind CSS  
+- 🌐 Implement SEO and accessibility best practices  
+
+---
+
+## 🙌 Contribute
+
+Pull requests are welcome for UI improvements, bug fixes, or JS enhancements. Feel free to fork and build on this!
