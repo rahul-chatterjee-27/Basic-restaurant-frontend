@@ -55,7 +55,7 @@ rahul-html-designs/
 
 ---
 
-## 🚀 Future Scope
+## 🚀 Future Scope(Doing Soon)
 
 - 🧠 Add interactivity and animations using JavaScript  
 - 🔄 Integrate backend for real-time orders/reservations  
